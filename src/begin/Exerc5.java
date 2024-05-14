@@ -8,7 +8,7 @@ import java.util.TimeZone;
 
 public class Exerc5 {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		
@@ -23,13 +23,9 @@ public class Exerc5 {
 		SimpleDateFormat parser = new SimpleDateFormat("dd/MM/yyyy");
 		parser.setTimeZone(TimeZone.getTimeZone("America/Sao_Paulo"));
 		
-		try {
-			Date dateParsed = parser.parse("25/04/2024");
-			System.out.println(dateParsed);
-			System.out.println(dateParsed.getTime());
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		Date dateParsed = parser.parse("25/04/2024");
+		System.out.println(dateParsed);
+		System.out.println(dateParsed.getTime());
 		
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
