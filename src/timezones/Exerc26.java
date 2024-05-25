@@ -9,12 +9,12 @@ public class Exerc26 {
 	
 	public static void main(String[] args) {
 		
+		// show the TimeZone default (Example: 'America/Sao_Paulo')
 		System.out.println(TimeZone.getDefault().getID());
 		
-		TimeZone.setDefault(TZ);
-		
 		Calendar calendar = Calendar.getInstance();
-//		calendar.setTimeZone(TZ);
+		// calendar use TimeZone 'Pacific/Apia'
+		calendar.setTimeZone(TZ);
 		
 		calendar.set(2011, Calendar.DECEMBER, 27);
 		
@@ -24,8 +24,12 @@ public class Exerc26 {
 			calendar.add(Calendar.DAY_OF_MONTH, 1);
 		} while (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.FRIDAY);
 		
-		System.out.println(calendar.getTimeInMillis());
-		System.out.println(calendar.getTime());
+		// show Date, but converted TimeZone for 'default'
+		System.out.println(calendar.getTime()); // 5 of January
+		
+		// change TimeZone for 'Pacific/Apia'
+		TimeZone.setDefault(TZ);
+		System.out.println(calendar.getTime()); // 6 of January
 		
 	}
 	
