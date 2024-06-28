@@ -8,18 +8,18 @@ import java.util.concurrent.Executors;
 
 public class Exerc11 {
 	
-	static SimpleDateFormat SDF = new SimpleDateFormat("dd/MM/yyyy");
-	
 	static ExecutorService pool = Executors.newCachedThreadPool();
 	
 	public static void main(String[] args) {
+		
+		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		
 		String value = "01/02/2018";
 		
 		for (int i = 0; i < 100; i++) {
 			pool.submit(() -> {
 				try {
-					SimpleDateFormat sdf = (SimpleDateFormat) SDF.clone();
+					SimpleDateFormat sdf = (SimpleDateFormat) format.clone();
 					synchronized (sdf) {
 						Date date = sdf.parse(value);
 						String dateFormatted = sdf.format(date);
